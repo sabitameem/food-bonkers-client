@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Image, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -16,9 +16,10 @@ const Header = () => {
           </Nav>
           <Nav  className='d-flex align-items-center'>
           {/* <Image src="https://via.placeholder.com/30" roundedCircle /> */}
-            <Nav.Link eventKey={2} href="#memes">
+          {/* <Nav.Link eventKey={2} href="#memes">
             <button type="button" class="btn btn-light">Login</button>
-            </Nav.Link>
+            </Nav.Link> */}
+            <Link to='/login'><button className='btn btn-light'>Login</button></Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
