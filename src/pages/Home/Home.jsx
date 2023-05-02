@@ -1,11 +1,7 @@
 import React from 'react';
-
-
-
 const Home = () => {
     return (
         <div className='d-flex justify-content-between'>
-            
             <div className='ps-1'>
             <h2 className='pt-3 d-none  d-lg-block' style={{fontSize: "70px" , fontWeight:'bolder'}}>Discover your <br/><span className='text-warning'> Own</span> taste!!!</h2>
             <h2 className='pt-1 d-lg-none' style={{fontSize: "30px" , fontWeight: 'bold'}}>Discover your <br/><span className='text-warning'> Own</span> taste!!!</h2>
