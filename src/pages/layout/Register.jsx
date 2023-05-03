@@ -1,17 +1,77 @@
-import React from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Button, Container, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+//import { AuthContext } from '../../../providers/AuthProvider';
+import { useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import SocialLoginBtn from "./SocialLoginBtn/SocialLoginBtn";
 
 const Register = () => {
-    return (
-        <Form className="col-md-6 mx-auto mt-3 w-25">
-        <h3>Please Register.</h3>
+ 
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const { createUser } = useContext(AuthContext);
+  const [accepted, setAccepted] = useState(false);
+  
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, photo, email, password);
+    // createUser(email, password)
+    //   .then((result) => {
+    //     const createdUser = result.user;
+    //     console.log(createdUser);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+      if (password.length < 7) {
+        setError('Password must have at least 7 characters.');
+        return;
+      }
+      else{
+        createUser(email, password)
+        .then((result) => {
+          const createdUser = result.user;
+          console.log(createdUser);
+          setSuccess('Registration successful!');
+          setError(null);
+        })
+        .catch((error) => {
+            setError(error.message);
+            setSuccess(null);
+        });
+      }
+  
+      // submit form and handle success
+    //   submitForm().then(() => {
+        
+    //   }).catch((error) => {
+        
+    //   });
+
+
+}
+
+  const handleAccepted = (event) => {
+    setAccepted(event.target.checked);
+  };
+
+  return (
+    <Container className="lg:w-25 mx-auto">
+      <h3 className="mt-3">Please Register</h3>
+      <Form onSubmit={handleRegister}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Your Name</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             name="name"
-            placeholder="Enter your name"
+            placeholder="Your Name"
             required
           />
         </Form.Group>
@@ -20,7 +80,7 @@ const Register = () => {
           <Form.Control
             type="text"
             name="photo"
-            placeholder="Enter your Photo URL here"
+            placeholder="Photo URL"
             required
           />
         </Form.Group>
@@ -33,7 +93,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-  
+
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -43,25 +103,33 @@ const Register = () => {
             required
           />
         </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" name="accept" label="Accept terms and conditions" />
-      </Form.Group>
-  
-        <Button variant="warning" type="submit">
+          <Form.Check
+            onClick={handleAccepted}
+            type="checkbox"
+            name="accept"
+            label={
+              <>
+                Accept <Link to="/terms">Terms and Conditions</Link>{" "}
+              </>
+            }
+          />
+        </Form.Group>
+        <Button variant="primary" disabled={!accepted} type="submit">
           Register
         </Button>
-        <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger"></Form.Text>
-        <p className="text-secondary">
-          <small>
-            Already registered?
-            <span>
-              <Link to="/login">Login</Link>
-            </span>{" "}
-          </small>
-        </p>
+        <br />
+        <br />
+        {error && <p className="text-danger">{error}</p>}
+        {success && <p className="text-success">{success}</p>}
+        <Form.Text className="text-secondary">
+          Already Have an Account? <Link to="/login">Login</Link>
+        </Form.Text>
       </Form>
-    );
+      <SocialLoginBtn></SocialLoginBtn>
+    </Container>
+  );
 };
 
 export default Register;
