@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SocialLoginBtn from "./SocialLoginBtn/SocialLoginBtn";
 
 const Login = () => {
   return (
@@ -26,7 +27,7 @@ const Login = () => {
         />
       </Form.Group>
 
-      <Button variant="warning" type="submit">
+      <Button className="" variant="warning" type="submit">
         Login
       </Button>
       <Form.Text className="text-success"></Form.Text>
@@ -39,6 +40,7 @@ const Login = () => {
           </span>{" "}
         </small>
       </p>
+      <SocialLoginBtn></SocialLoginBtn>  
     </Form>
   );
 };
