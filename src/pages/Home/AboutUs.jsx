@@ -4,7 +4,8 @@ const AboutUs = () => {
   return (
     <div className="">
       <div className="text-center">
-        <p className="text-secondary mb-0">
+        <div>
+          <p className="text-secondary mb-0 mt-5">
           <small>contact</small>
         </p>
         <p className="fs-2 fw-normal fst-italic mt-0 mb-1">
@@ -18,6 +19,7 @@ const AboutUs = () => {
           We will <br /> always aim to reply as quickly as we can however if
           your enquiry is urgent <br /> please call us on 034 5345 7700
         </h2>
+        </div>
 
         <h2 className="text-secondary d-lg-none" style={{ fontSize: "10px" }}>
           Please don’t hesitate to get in touch with any questions or enquiries.
@@ -26,7 +28,7 @@ const AboutUs = () => {
         </h2>
       </div>
       <div className="container mt-5 ">
-        <div className="row justify-content-center">
+        <div className="row">
           <div className="col-md-6">
             <div>
               <p className="fs-4 lg:fs-2 fw-bold">Send us a message</p>
