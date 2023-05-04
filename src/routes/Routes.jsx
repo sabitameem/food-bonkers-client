@@ -5,6 +5,7 @@ import Blog from "../pages/layout/Blog";
 import ErrorPage from "../pages/layout/ErrorPage";
 import Login from "../pages/layout/Login";
 import Register from "../pages/layout/Register";
+import Recipes from "../pages/layout/Recipes";
 
 
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path :'/register',
                 element: <Register></Register>
+            },
+            {
+                path:'/recipes/:id',
+                element:<Recipes></Recipes>,
             }
         ]
       }

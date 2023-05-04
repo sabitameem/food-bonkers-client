@@ -20,8 +20,8 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
-    
+    //console.log(name, photo, email, password);
+    console.log(photo)
 
       if (password.length < 7) {
         setError('Password must have at least 7 characters.');
@@ -32,8 +32,17 @@ const Register = () => {
         .then((result) => {
           const createdUser = result.user;
           console.log(createdUser);
+          // createdUser.updateProfile({
+          //   displayName: name,
+          //   photoURL: photo
+          // }).then(() => {
+          //   console.log('User profile updated successfully!');
+          // }).catch((error) => {
+          //   console.log('Error updating user profile:', error);
+          // });
           setSuccess('Registration successful!');
           setError(null);
+        
         })
         .catch((error) => {
             setError(error.message);
