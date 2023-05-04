@@ -21,14 +21,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
-    // createUser(email, password)
-    //   .then((result) => {
-    //     const createdUser = result.user;
-    //     console.log(createdUser);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    
 
       if (password.length < 7) {
         setError('Password must have at least 7 characters.');
@@ -47,15 +40,7 @@ const Register = () => {
             setSuccess(null);
         });
       }
-  
-      // submit form and handle success
-    //   submitForm().then(() => {
-        
-    //   }).catch((error) => {
-        
-    //   });
-
-
+ 
 }
 
   const handleAccepted = (event) => {

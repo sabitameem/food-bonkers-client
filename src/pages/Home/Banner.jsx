@@ -12,8 +12,8 @@ const Banner = () => {
         <h2 className=' d-lg-none' style={{fontSize: '10px'}}>We try to show you all the variety of Japanese cuisine and its current trends.</h2>
 
         </div>
-        <img className='d-none w-50 d-lg-block' style={{height: '400px'}} src="/public/banner3.webp" alt="" />
-        <img className='w-50 d-lg-none'style={{ height: '200px' }} src="/public/banner3.webp" alt="" />
+        <img className='d-none w-50 d-lg-block' style={{height: '400px'}} src="https://i.ibb.co/16bDnJL/banner3.webp" alt="" />
+        <img className='w-50 d-lg-none'style={{ height: '200px' }} src="https://i.ibb.co/16bDnJL/banner3.webp" alt="" />
         
     </div>
     );

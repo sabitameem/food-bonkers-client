@@ -35,19 +35,15 @@ const Header = () => {
               </Link>
             </Nav>
             <Nav className="d-flex align-items-center">
-              {/* <Image src="https://via.placeholder.com/30" roundedCircle /> */}
-              {/* <Nav.Link eventKey={2} href="#memes">
-            <button type="button" class="btn btn-light">Login</button>
-            </Nav.Link> */}
-              {user ? (
-                <Button onClick={handleLogOut} variant="secondary">
-                  Logout
-                </Button>
-              ) : (
+              {user ? 
+                  <Button onClick={handleLogOut} variant="secondary">
+                    Logout
+                  </Button>
+               : 
                 <Link to="/login">
                   <Button variant="secondary">Login</Button>
                 </Link>
-              )}
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>

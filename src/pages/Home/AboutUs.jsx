@@ -37,14 +37,14 @@ const AboutUs = () => {
         <h2 className=' d-lg-none text-secondary' style={{fontSize: '10px'}}>Please use the form below to get in touch. If you need a reply
                 we will get in touch as soon as possible.</h2>
 
-              <div class="form-floating">
+              <div className="form-floating">
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   placeholder="Leave a comment here"
                   id="floatingTextarea2"
                   style={{ height: "100px" }}
                 ></textarea>
-                <label for="floatingTextarea2">Comments</label>
+                <label htmlFor="floatingTextarea2">Comments</label>
               </div>
               <button className="btn btn-warning mt-3">Submit</button>
             </div>
