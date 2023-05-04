@@ -6,6 +6,7 @@ import ErrorPage from "../pages/layout/ErrorPage";
 import Login from "../pages/layout/Login";
 import Register from "../pages/layout/Register";
 import Recipes from "../pages/layout/Recipes";
+import PrivateRoute from "../provider/PrivateRoute";
 
 
 
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/recipes/:id',
-                element:<Recipes></Recipes>,
+                element:<PrivateRoute><Recipes></Recipes></PrivateRoute>,
             }
         ]
       }

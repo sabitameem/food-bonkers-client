@@ -32,14 +32,6 @@ const Register = () => {
         .then((result) => {
           const createdUser = result.user;
           console.log(createdUser);
-          // createdUser.updateProfile({
-          //   displayName: name,
-          //   photoURL: photo
-          // }).then(() => {
-          //   console.log('User profile updated successfully!');
-          // }).catch((error) => {
-          //   console.log('Error updating user profile:', error);
-          // });
           setSuccess('Registration successful!');
           setError(null);
         

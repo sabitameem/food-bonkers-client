@@ -1,14 +1,19 @@
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLoginBtn from "./SocialLoginBtn/SocialLoginBtn";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const navigate =useNavigate()
+    const location = useLocation()
+    console.log(location)
     //const navigate = useNavigate();
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+    //const location =useLocation()
+    // console.log(location)
+     const from =location.state?.from || "/"
+    
 
  
     const handleLogin = event => {
@@ -17,16 +22,24 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-
+        
+            
         signIn(email, password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                // navigate(from, { replace: true })
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            navigate(from)
+            // setSuccess('Login successful!');
+            // setError(null);
+            //navigate(from)
+            // navigate(from, { replace: true })
+        })
+        .catch(error => {
+            console.log(error.message);
+            //setSuccess(null);
+        })
+        
+
     }  
         // if ((email, password)) {
         //   loginUser(email, password)

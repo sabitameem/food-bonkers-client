@@ -10,7 +10,7 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/chefData/${id}/recipes`)
+    fetch(`https://food-bonkers-server.vercel.app/chefData/${id}/recipes`)
       .then((res) => res.json())
       .then((data) =>{
         setRecipes(data)
