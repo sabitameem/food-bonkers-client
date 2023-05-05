@@ -3,6 +3,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 //import { AuthContext } from '../../../providers/AuthProvider';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLoginBtn from "./SocialLoginBtn/SocialLoginBtn";
 
@@ -12,6 +13,7 @@ const Register = () => {
   const [success, setSuccess] = useState(null);
   const { createUser } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
+  const navigate =useNavigate()
   
   const handleRegister = (event) => {
     event.preventDefault();
@@ -32,6 +34,7 @@ const Register = () => {
         .then((result) => {
           const createdUser = result.user;
           console.log(createdUser);
+          navigate('/')
           setSuccess('Registration successful!');
           setError(null);
         

@@ -35,9 +35,12 @@ const Header = () => {
               </Link>
             </Nav>
             <Nav className="d-flex align-items-center">
-            {user && user.photoURL && (
+            {/* {user && user.photoURL && (
             <img src={user.photoURL} alt="User Profile" width="32" height="32" />
-          )}
+          )} */}
+          {
+            user && <img className="rounded-circle" src={user.photoURL} alt="" />
+          }
               {user ? 
                   <Button onClick={handleLogOut} variant="secondary">
                     Logout
