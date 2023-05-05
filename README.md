@@ -5,5 +5,5 @@ b7a10-chef-recipe-hunter-client-side-sabitameem created by GitHub Classroom
 *it has pdf section
 *pdf was new for me
 
-#live link
+# live link
 https://silver-frangollo-33d199.netlify.app/
