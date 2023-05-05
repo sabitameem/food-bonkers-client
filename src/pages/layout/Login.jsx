@@ -28,7 +28,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
-            navigate(from)
+            navigate(from,)
             // setSuccess('Login successful!');
             // setError(null);
             //navigate(from)

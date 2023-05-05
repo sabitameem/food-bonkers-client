@@ -5,7 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
+console.log(user)
   const handleLogOut = () => {
     logOut()
       .then()
@@ -39,7 +39,7 @@ const Header = () => {
             <img src={user.photoURL} alt="User Profile" width="32" height="32" />
           )} */}
           {
-            user && <img className="rounded-circle" src={user.photoURL} alt="" />
+            user && <img className="rounded-circle " style={{ height: '30px', width: '30px', marginRight:'4px' }} src={user.photoURL} alt="user" />
           }
               {user ? 
                   <Button onClick={handleLogOut} variant="secondary">

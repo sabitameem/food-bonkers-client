@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const SingleRecipe = ({recipe}) => {
     const notify = () => toast("Added to favorite list!");
 
-    console.log(recipe)
+    //console.log(recipe)
     return (
         <Card className='mb-3'>
         <Card.Img style={{height:'250px'}} variant="top" src={recipe.image} />

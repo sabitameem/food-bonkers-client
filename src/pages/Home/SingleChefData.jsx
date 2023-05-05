@@ -4,7 +4,7 @@ import { FcLike } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 
 const SingleChefData = ({singleChefData}) => {
-    console.log(singleChefData)
+    //console.log(singleChefData)
     const {id,image_url,likes,name,years_of_experience,recipe_count,ratings}=singleChefData;
     //console.log(id)
     // const [showRecipes, setShowRecipes] = useState(false);

@@ -6,12 +6,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLoginBtn from "./SocialLoginBtn/SocialLoginBtn";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
- 
+  
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const { createUser } = useContext(AuthContext);
+  const { createUser,updateUser } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
   const navigate =useNavigate()
   
@@ -22,8 +23,9 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    //console.log(name, photo, email, password);
-    console.log(photo)
+     //console.log(name, photo, email, password);
+    // console.log(photo)
+    
 
       if (password.length < 7) {
         setError('Password must have at least 7 characters.');
@@ -32,9 +34,15 @@ const Register = () => {
       else{
         createUser(email, password)
         .then((result) => {
+          
           const createdUser = result.user;
+          const userInfo ={displayName : name, photoURL :photo}
+          updateUser(userInfo)
+          .then(()=>{console.log(userInfo)})
           console.log(createdUser);
           navigate('/')
+          // setName(createdUser.displayName);
+          // setPhoto(createdUser.photoURL);
           setSuccess('Registration successful!');
           setError(null);
         
