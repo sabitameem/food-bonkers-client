@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 
 const Banner = () => {
     return (
@@ -12,8 +13,12 @@ const Banner = () => {
         <h2 className=' d-lg-none' style={{fontSize: '10px'}}>We try to show you all the variety of American cuisine and its current trends.</h2>
 
         </div>
-        <img className='d-none w-50 d-lg-block rounded' style={{height: '400px'}} src="https://i.ibb.co/16bDnJL/banner3.webp" alt="" />
-        <img className='w-50 d-lg-none rounded'style={{ height: '200px' }} src="https://i.ibb.co/16bDnJL/banner3.webp" alt="" />
+        <LazyLoad  style={{height: '400px'}}>
+        <img className='d-none d-lg-block rounded me-0' style={{height: '400px'}} src="https://i.ibb.co/16bDnJL/banner3.webp" alt="" />
+        </LazyLoad>
+        <LazyLoad>
+        <img className='d-lg-none rounded'style={{ height: '200px', width:'200px' }} src="https://i.ibb.co/16bDnJL/banner3.webp" alt="" />
+        </LazyLoad>
         
     </div>
     );
