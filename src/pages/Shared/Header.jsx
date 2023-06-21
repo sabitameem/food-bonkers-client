@@ -1,11 +1,20 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Nav,
+  Navbar,
+  OverlayTrigger,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useState } from "react";
+import { Tooltip } from "bootstrap";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-console.log(user)
+  console.log(user);
+  const [showTooltip, setShowTooltip] = useState(false);
   const handleLogOut = () => {
     logOut()
       .then()
@@ -35,21 +44,33 @@ console.log(user)
               </Link>
             </Nav>
             <Nav className="d-flex align-items-center">
-            {/* {user && user.photoURL && (
-            <img src={user.photoURL} alt="User Profile" width="32" height="32" />
-          )} */}
-          {
-            user && <img className="rounded-circle " style={{ height: '30px', width: '30px', marginRight:'4px' }} src={user.photoURL} alt="user" />
-          }
-              {user ? 
-                  <Button onClick={handleLogOut} variant="secondary">
-                    Logout
-                  </Button>
-               : 
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4 offset-md-4 w-50 d-flex justify-content-center align-items-center">
+                    <div className="profile">
+                      {user && (
+                        <img
+                          src={user.photoURL}
+                          className="img-fluid rounded-circle"
+                          alt="User Profile"
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+           
+
+              {user ? (
+                <Button onClick={handleLogOut} variant="secondary">
+                  Logout
+                </Button>
+              ) : (
                 <Link to="/login">
                   <Button variant="secondary">Login</Button>
                 </Link>
-              }
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

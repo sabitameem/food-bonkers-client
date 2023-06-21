@@ -7,6 +7,7 @@ import {
   GithubAuthProvider,
 } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
+import { Github, Google } from "react-bootstrap-icons";
 
 const SocialLoginBtn = () => {
   const [user, setUser] = useState({});
@@ -49,7 +50,7 @@ const SocialLoginBtn = () => {
 
   return (
     <div className=" social-button-container w-50 mt-3">
-      <div className="">
+      {/* <div className="">
         <img
           onClick={handleGoogleLogin}
           className=" social-button"
@@ -64,7 +65,11 @@ const SocialLoginBtn = () => {
           src="https://i.ibb.co/g9f4P0S/github-btn.png"
           alt=""
         />
-      </div>
+      </div> */}
+      
+      <div className="fs-2 fw-bold d-flex justify-content-center align-items-center">Login with   <Google className="ms-2 mt-1" onClick={handleGoogleLogin} color="royalblue" size={25}></Google>OOGLE</div>
+      
+      
     </div>
   );
 };

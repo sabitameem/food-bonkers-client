@@ -54,8 +54,8 @@ const Login = () => {
    // }
 
   return (
-    <Container className='w-100 w-md-25 mx-auto'>
-    <h3>Please Login</h3>
+    <Container className='w-50 w-md-25 mx-auto '>
+    <h3 className="mt-3">Please Login</h3>
     <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
