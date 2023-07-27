@@ -4,12 +4,12 @@ import {
   Container,
   Nav,
   Navbar,
-  OverlayTrigger,
+
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useState } from "react";
-import { Tooltip } from "bootstrap";
+
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -26,20 +26,20 @@ const Header = () => {
         className="d-flex align-items-center"
         collapseOnSelect
         expand="lg"
-        bg="dark"
-        variant="dark"
+        bg="gray"
+        variant="500"
       >
         <Container>
-          <Navbar.Brand className="fs-2 fw-bold" href="/">
-            food <span className="fst-italic">Bonkers</span>
+          <Navbar.Brand className="fs-2 fw-bold text-warning" href="/">
+            foodBonkers
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto d-flex align-items-center gap-2">
-              <Link className="text-white text-decoration-none" to="/">
+              <Link className="text-black text-decoration-none" to="/">
                 Home
               </Link>
-              <Link className="text-white text-decoration-none" to="/blog">
+              <Link className="text-black text-decoration-none" to="/blog">
                 Blog
               </Link>
             </Nav>
